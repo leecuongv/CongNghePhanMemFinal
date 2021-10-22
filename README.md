@@ -46,5 +46,5 @@
 # Mem 2: Phân tích chức năng và sơ đồ lớp
 # Mem 3: Sơ đồ dữ liệu và phần tổng kết
 # Mem 4: Thiết kế
-# Mem 5: Làm báo cáo
+# Mem 5: Làm báo cáo + report test case + test lại ct
 Ai làm phần nào thì note lại phía sau nha
