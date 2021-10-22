@@ -1,8 +1,8 @@
 
 # Phần mềm quản lý khách sạn
 ## Công nghệ sử dụng
-![](Icon/CSharp.png)
-![](Icon/sqlServer.png)
+![](https://img.icons8.com/color/48/000000/c-plus-plus-logo.png)
+![](https://img.icons8.com/color/48/000000/microsoft-sql-server.png)
 # Báo báo
   - 1. Hiện trạng và yêu cầu 
     - Hiện trạng
