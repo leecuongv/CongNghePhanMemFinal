@@ -3,7 +3,7 @@
 ## Công nghệ sử dụng
 ![](https://img.icons8.com/color/48/000000/c-plus-plus-logo.png)
 ![](https://img.icons8.com/color/48/000000/microsoft-sql-server.png)
-## Báo báo
+# Báo báo
   - 1. Hiện trạng và yêu cầu 
     - Hiện trạng
     - Yêu cầu
