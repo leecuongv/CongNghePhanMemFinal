@@ -47,3 +47,4 @@
 # Mem 3: Sơ đồ dữ liệu và phần tổng kết
 # Mem 4: Thiết kế
 # Mem 5: Làm báo cáo
+Ai làm phần nào thì note lại phía sau nha
