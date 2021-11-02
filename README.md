@@ -42,9 +42,10 @@
       + Khuyết điểm
     - Hướng phát triển
 
-# Mem 1: Hết phần Hiện trạng yêu cầu
-# Mem 2: Phân tích chức năng và sơ đồ lớp
-# Mem 3: Sơ đồ dữ liệu và phần tổng kết
-# Mem 4: Thiết kế
-# Mem 5: Làm báo cáo
+# Mem 1: Hiện trạng yêu cầu - Đan
+# Mem 2: Phân tích - An
+# Mem 3: Thiết kế  - Khoa
+# Mem 4: Thiết kế giao diện + test - Duy
+# Mem 5: Tổng kết + Làm báo cáo + powerpoint - Cường
+
 Ai làm phần nào thì note lại phía sau nha
