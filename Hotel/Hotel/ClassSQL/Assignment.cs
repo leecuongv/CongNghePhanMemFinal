@@ -26,7 +26,7 @@ namespace Hotel
             {
                 query = "select E.id as id_employee ,E.name,T.name as type from employees as E inner join" +
                     " type_employee as T on E.type=T.id " +
-                    " where not exists (select A.id_employee from assignment as A where  CAST(A.checkin as DATE)=@date and E.id=A.id_employee)";
+                    " where not exists (select A.id_employee from assignment as A where  CAST(A.date as DATE)=@date and E.id=A.id_employee)";
                 
                 command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@date", SqlDbType.Date).Value = date;
@@ -52,7 +52,7 @@ namespace Hotel
             DataTable data = new DataTable();
             try
             {
-                query = "select id_employee,count(checkin) as count from assignment where CAST(checkin as DATE)>=@from and CAST(checkin as DATE)<=@to group by id_employee";
+                query = "select id_employee,count(date) as count from assignment where CAST(checkin as DATE)>=@from and CAST(date as DATE)<=@to group by id_employee";
 
                 command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@from", SqlDbType.Date).Value = from;
@@ -129,7 +129,7 @@ namespace Hotel
             try
             {
                 query = "select min(stt) as stt from employees as E " +
-                    " where exists (select A.id_employee from assignment as A where CAST(A.checkin as DATE)=@date and E.id=A.id_employee)" +
+                    " where exists (select A.id_employee from assignment as A where CAST(A.date as DATE)=@date and E.id=A.id_employee)" +
                     " group by type order by type";
 
                 command = new SqlCommand(query, Mydb.getConnection);
@@ -203,7 +203,7 @@ namespace Hotel
             try
             {
                 query = "select id_employee,E.name,T.name as type from employees as E inner join assignment as A" +
-                " on E.id=A.id_employee inner join type_employee as T on E.type=T.id  where CAST(A.checkin as DATE)=@date and A.shift=@shift" +
+                " on E.id=A.id_employee inner join type_employee as T on E.type=T.id  where CAST(A.date as DATE)=@date and A.shift=@shift" +
                 " order by E.stt";
                 command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@date", SqlDbType.Date).Value = date;
@@ -228,7 +228,7 @@ namespace Hotel
             SqlCommand command;
             try
             {
-                query = "select * from Assignment where CAST(Assignment.checkin as DATE)=@date";
+                query = "select * from Assignment where CAST(Assignment.date as DATE)=@date";
                 command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@date", SqlDbType.Date).Value = date;
                 Mydb.openConnection();
@@ -393,7 +393,7 @@ namespace Hotel
         }
         public bool DeleteEmployeesInShiftAndDate(int shift,DateTime date)
         {
-            string query = "delete from assignment where shift=@shift and CAST(checkin as DATE)=@date";
+            string query = "delete from assignment where shift=@shift and CAST(date as DATE)=@date";
             Mydb.openConnection();
             try
             {
@@ -424,7 +424,7 @@ namespace Hotel
         public bool DeleteEmployeesAfterDate( DateTime date)
         {
 
-            string query = "select * from assignment where CAST(checkin as DATE)>@date";
+            string query = "select * from assignment where CAST(date as DATE)>@date";
             Mydb.openConnection();
             try
             {
@@ -435,7 +435,7 @@ namespace Hotel
                 adapter.Fill(dt);
                 if (dt.Rows.Count == 0)
                     return true;
-                query = "delete from assignment where CAST(checkin as DATE)>@date";
+                query = "delete from assignment where CAST(date as DATE)>@date";
                 command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@date", SqlDbType.Date).Value = date;
                 if (command.ExecuteNonQuery() > 0)
@@ -461,7 +461,7 @@ namespace Hotel
         public bool DeleteEmployeesBetweenDate(DateTime from,DateTime to)
         {
 
-            string query = "delete from assignment where CAST(checkin as DATE)>=@from and CAST(chekin as DATE)<=@to";
+            string query = "delete from assignment where CAST(date as DATE)>=@from and CAST(chekin as DATE)<=@to";
             Mydb.openConnection();
             try
             {
@@ -489,60 +489,18 @@ namespace Hotel
             }
         }
 
-        /*public bool AddEmployeesInShiftAndDate(int id_employee,int shift, DateTime checkin,DateTime checout,float delay,float soon,int status,int id_own=0)
+        public bool AddEmployeesInShiftAndDate(int id_employee,int shift,DateTime date,float work,int status)
         {
-            string query = "insert into assignment(id_employee,shift,checkin,checkout,delay,soon,status,id_own) values(@id_employee,@shift,@checkin,@checkout,@delay,@soon,@status,@id_own)";
+            string query = "insert into assignment(id_employee,shift,date,work,status) values(@id_employee,@shift,@date,@work,@status)";
             Mydb.openConnection();
             try
             {
                 SqlCommand command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@id_employee", SqlDbType.Int).Value = id_employee;
                 command.Parameters.Add("@shift", SqlDbType.Int).Value = shift;
-                command.Parameters.Add("@checkin", SqlDbType.DateTime).Value = checkin;
-                command.Parameters.Add("@checkout", SqlDbType.DateTime).Value = checout;
-                command.Parameters.Add("@delay", SqlDbType.Float).Value = delay;
-                command.Parameters.Add("@soon", SqlDbType.Float).Value = soon;
+                command.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                command.Parameters.Add("@work", SqlDbType.Float).Value = work;
                 command.Parameters.Add("@status", SqlDbType.Int).Value = status;
-                command.Parameters.Add("@id_own", SqlDbType.Int).Value = id_own;
-
-                if (command.ExecuteNonQuery() > 0)
-                {
-                    Mydb.closeConnection();
-                    WORKING Working = new WORKING();
-                    DataTable dt = checkID(id_employee,checkin);
-                    Working.AddWorking(id_employee, (int)(dt.Rows[0][0]), checkin, -1);  //Thêm vào bảng working dùng để chấm công      
-                    return true;
-                }
-                else
-                {
-                    Mydb.closeConnection();
-                    return false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Assignment SQL");
-                Mydb.closeConnection();
-                return false;
-            }
-        }*/
-
-        public bool AddEmployeesInShiftAndDate(int id_employee,int shift, DateTime checkin,DateTime checkout,float delay,float soon,int status,int id_own=0)
-        {
-            string query = "insert into assignment(id_employee,shift,checkin,checkout,delay,soon,status,id_own) values(@id_employee,@shift,@checkin,@checkout,@delay,@soon,@status,@id_own)";
-            Mydb.openConnection();
-            try
-            {
-                SqlCommand command = new SqlCommand(query, Mydb.getConnection);
-                command.Parameters.Add("@id_employee", SqlDbType.Int).Value = id_employee;
-                command.Parameters.Add("@shift", SqlDbType.Int).Value = shift;
-                command.Parameters.Add("@checkin", SqlDbType.DateTime).Value = checkin;
-                command.Parameters.Add("@checkout", SqlDbType.DateTime).Value = checkout;
-                command.Parameters.Add("@delay", SqlDbType.Float).Value = delay;
-                command.Parameters.Add("@soon", SqlDbType.Float).Value = soon;
-                command.Parameters.Add("@status", SqlDbType.Int).Value = status;
-                command.Parameters.Add("@id_own", SqlDbType.Int).Value = id_own;
 
                 if (command.ExecuteNonQuery() > 0)
                 {
@@ -628,15 +586,14 @@ namespace Hotel
 
         public DataTable checkID(int id,DateTime date)//lấy id của bảng phân công
         {
-            string query = "select id from assignment where id_employee=@id_employee and checkin<=@date1 and checkout>=@date2";
+            string query = "select id from assignment where id_employee=@id_employee and CAST(date as DATE)=@date";
             Mydb.openConnection();
             DataTable dt = new DataTable();
             try
             {
                 SqlCommand command = new SqlCommand(query, Mydb.getConnection);
                 command.Parameters.Add("@id_employee", SqlDbType.Int).Value = id;
-                command.Parameters.Add("@date1", SqlDbType.DateTime).Value = date;
-                command.Parameters.Add("@date2", SqlDbType.DateTime).Value = date;
+                command.Parameters.Add("@date", SqlDbType.Date).Value = date;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 
                 adapter.SelectCommand = command;
@@ -651,25 +608,6 @@ namespace Hotel
                 Mydb.closeConnection();
                 return dt;
             }
-        }
-
-        public bool DeleteWorking(int eID, int shift)
-        {
-            SqlCommand command = new SqlCommand("Delete working where id_employees = @eID and shift = @oshift", Mydb.getConnection);
-            command.Parameters.Add("@eID", SqlDbType.Int).Value = eID;
-            command.Parameters.Add("@oshift", SqlDbType.Int).Value = shift;
-            Mydb.openConnection();
-            if(command.ExecuteNonQuery()>0)
-            {
-                Mydb.closeConnection();
-                return true;
-            }   
-            else
-            {
-                Mydb.closeConnection();
-                return false;
-
-            }    
         }
 
 

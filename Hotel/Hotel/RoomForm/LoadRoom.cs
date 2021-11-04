@@ -75,7 +75,7 @@ namespace Hotel
                 btn1.Text = "Đặt";
                 btn2.Text = "Trả";
                 btn1.Click += BtnDatPhong_Click;
-                btn2.Click += BtnTraPhong_Click; ;
+                btn2.Click += BtnTraPhong_Click;
                 /*id = Convert.ToInt32(dt[0].ToString());
                 pnl_c.ContextMenuStrip = roomRightClick(id);*/ 
             }
@@ -102,10 +102,7 @@ namespace Hotel
             btn2.Location = new Point(105, 150);
             pnl_c.Controls.AddRange(new Control[] { lb1, roomLb, lb2, lb3,btn1,btn2});
             pnl_c.BackColor = ColorTranslator.FromHtml(Lib.ColorRoomDefault[indexColorButton]);
-            //pnl_c.Controls.Add(roomRightClick(id));
-            
-            
-
+           
             return pnl_c;
 
         }
@@ -133,7 +130,6 @@ namespace Hotel
         public void LoadRoom_Load(object sender, EventArgs e)
         {
             LoadListRoom(SortByName);
-
         }
 
         public void btnRefresh_Click(object sender, EventArgs e)

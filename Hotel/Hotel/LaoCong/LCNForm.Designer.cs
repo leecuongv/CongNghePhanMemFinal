@@ -89,32 +89,7 @@ namespace Hotel
             this.pnlCheckin.Size = new System.Drawing.Size(0, 60);
             this.pnlCheckin.TabIndex = 7;
             this.pnlCheckin.Tag = "0";
-            // 
-            // btnCheckout
-            // 
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.Location = new System.Drawing.Point(3, 30);
-            this.btnCheckout.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(196, 30);
-            this.btnCheckout.TabIndex = 0;
-            this.btnCheckout.Text = "Check Out";
-            this.btnCheckout.UseVisualStyleBackColor = true;
-            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
-            // 
-            // btnCheckin
-            // 
-            this.btnCheckin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckin.Location = new System.Drawing.Point(3, 3);
-            this.btnCheckin.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCheckin.Name = "btnCheckin";
-            this.btnCheckin.Size = new System.Drawing.Size(196, 30);
-            this.btnCheckin.TabIndex = 0;
-            this.btnCheckin.Text = "Check In";
-            this.btnCheckin.UseVisualStyleBackColor = true;
-            this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
+           
             // 
             // btnExpand
             // 

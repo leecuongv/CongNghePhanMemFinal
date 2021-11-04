@@ -266,33 +266,7 @@ namespace Hotel
             }
         }
 
-        public DataTable GetAllInfoEmployee()
-        {
-            string query = " select A.id_employee as [Họ va tên],E.name,case when A.status =1 then N'Trực chính' else " +
-                "case when A.status = 0 then N'Trực thế' else N'Vắng' end end as [Tình trạng], " +
-                "A.checkin,A.checkout,delay as [Trễ], " +
-                "soon as [Về sớm], " +
-                "case when A.status = 1 then NULL else E2.name end as Replace " +
-                "from assignment as A " +
-                "inner join employees as E on E.id = A.id_employee left join employees as E2 on E2.id = A.id_own " +
-                "inner join type_employee as T on T.id = E.type";
-            Mydb.openConnection();
-            DataTable data = new DataTable();
-            try
-            {
-                SqlCommand command = new SqlCommand(query, Mydb.getConnection);
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = command;
-                adapter.Fill(data);
-                return data;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                Mydb.closeConnection();
-                return data;
-            }
-        }
+        
 
         public DataTable GetInfoEmployee(SqlCommand command)
         {

@@ -77,7 +77,7 @@ namespace Hotel
             this.rbLC.ForeColor = System.Drawing.Color.Black;
             this.rbLC.Location = new System.Drawing.Point(316, 153);
             this.rbLC.Name = "rbLC";
-            this.rbLC.Size = new System.Drawing.Size(141, 33);
+            this.rbLC.Size = new System.Drawing.Size(115, 28);
             this.rbLC.TabIndex = 11;
             this.rbLC.Tag = "LC";
             this.rbLC.Text = "Lao công";
@@ -91,7 +91,7 @@ namespace Hotel
             this.rbQL.ForeColor = System.Drawing.Color.Black;
             this.rbQL.Location = new System.Drawing.Point(188, 153);
             this.rbQL.Name = "rbQL";
-            this.rbQL.Size = new System.Drawing.Size(122, 33);
+            this.rbQL.Size = new System.Drawing.Size(100, 28);
             this.rbQL.TabIndex = 10;
             this.rbQL.Tag = "QL";
             this.rbQL.Text = "Quản lý";
@@ -107,7 +107,7 @@ namespace Hotel
             this.rbLT.ForeColor = System.Drawing.Color.Black;
             this.rbLT.Location = new System.Drawing.Point(86, 153);
             this.rbLT.Name = "rbLT";
-            this.rbLT.Size = new System.Drawing.Size(104, 33);
+            this.rbLT.Size = new System.Drawing.Size(84, 28);
             this.rbLT.TabIndex = 9;
             this.rbLT.TabStop = true;
             this.rbLT.Tag = "LT";
@@ -165,7 +165,7 @@ namespace Hotel
             this.txtPass.ForeColor = System.Drawing.Color.Silver;
             this.txtPass.Location = new System.Drawing.Point(138, 247);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(240, 37);
+            this.txtPass.Size = new System.Drawing.Size(240, 31);
             this.txtPass.TabIndex = 5;
             this.txtPass.Text = "Password";
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
@@ -191,7 +191,7 @@ namespace Hotel
             this.txtUser.ForeColor = System.Drawing.Color.Silver;
             this.txtUser.Location = new System.Drawing.Point(138, 193);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(240, 37);
+            this.txtUser.Size = new System.Drawing.Size(240, 31);
             this.txtUser.TabIndex = 4;
             this.txtUser.Text = "Username";
             this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
@@ -237,7 +237,7 @@ namespace Hotel
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Hotel.Properties.Resources.consumer_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

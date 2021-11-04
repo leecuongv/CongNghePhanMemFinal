@@ -1,6 +1,5 @@
 ﻿
 using Hotel.DAO;
-using Hotel.EMPLOYEE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -284,82 +283,7 @@ namespace Hotel
             }
         }
 
-        private void btnExpand_Click(object sender, EventArgs e)
-        {
-            if (pnlCheckin.Tag.ToString() == "0")
-            {
-                pnlCheckin.Size = new Size(200, 60);
-                btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px3;
-                pnlCheckin.Tag = "Expand";
-            }
-            else
-            {
-                pnlCheckin.Size = new Size(0, 60);
-                btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px2;
-                pnlCheckin.Tag = "0";
-            }
-
-        }
-
-        private void btnCheckin_Click(object sender, EventArgs e)
-        {
-            WORKING WorkingSQL = new WORKING();
-            Assignment AssignmentSQL = new Assignment();
-            DataTable dt = AssignmentSQL.checkID(GlobalVar._id, DateTime.Now);//Lấy id phân công làm viêc
-            if (dt.Rows.Count > 0)
-            {
-                int id = (int)(dt.Rows[0][0]);//id của bảng assignment
-                if (WorkingSQL.ExistCheckin(GlobalVar._id, id))
-                {
-                    MessageBox.Show("Đã Checkin. Vui lòng không checkin lại", "Checkin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (WorkingSQL.UpdateCheckin(id, DateTime.Now))
-                {
-                    WorkingSQL.AddWorking(id, GlobalVar._id);
-                    MessageBox.Show("CheckIn thành công");
-                }
-                else
-                {
-                    MessageBox.Show("CheckIn không thành công");
-                }
-            }
-            else
-            {
-                //Viết hàm cho người dùng chọn ID của người cần làm thay
-                Form checkin = new EMPLOYEE.CheckInForm();
-                checkin.ShowDialog();
-            }
-        }
-
-        private void btnCheckout_Click(object sender, EventArgs e)
-        {
-            WORKING WorkingSQL = new WORKING();
-            DataTable dt = WorkingSQL.GetIDWorking(GlobalVar._id);//Lấy id phân công làm viêc
-            if (dt.Rows.Count > 0)
-            {
-                int id = (int)(dt.Rows[0][0]);//id của bảng assignment
-
-                if (WorkingSQL.UpdateCheckout(id, DateTime.Now))
-                {
-                    if (WorkingSQL.DelWorking(id))
-                        MessageBox.Show("CheckOut thành công");
-                    else
-                    {
-                        MessageBox.Show("CheckOut không thành công");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("CheckOut không thành công");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Đã Checkout. Vui lòng không checkout lại", "Checkin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-        }
+       
 
         private void btnSetting_Click(object sender, EventArgs e)
         {

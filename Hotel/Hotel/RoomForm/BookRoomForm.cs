@@ -63,8 +63,7 @@ namespace Hotel
             if (checkFill() && checkTime())
             {
                 STATISTIC Statistic = new STATISTIC();
-
-                int pay = CalPay();//Viết hàm tính tiền sau
+                int pay = CalPay();
 
                 int current_status = 0;
                 TimeSpan t = dtpFrom.Value - DateTime.Now;
@@ -74,9 +73,7 @@ namespace Hotel
                 }
                 else
                 {
-                    CARD Card = new CARD();
                     current_status = 1;
-                    Card.EditStatusCard(nameRoom, 1);//Giao thẻ phòng cho khách
                 }
                 int id_bill = BillSQL.AddBill(nameRoom, dtpFrom.Value, dtpTo.Value, current_status, pay, 0);
                 if (id_bill > 0)
@@ -84,7 +81,6 @@ namespace Hotel
                     if (Customer.AddCustomer(txtTenKhach.Text, txtCMND.Text, txtSdt.Text, id_bill, txtDescription.Text, 1))
                     {
                         RoomSQL.EditStatusRoom(nameRoom, current_status);
-
                         Statistic.AddEvent("Giao phòng " + cbTenPhong.Text, int.Parse(txtTong.Text), "Khách:" + txtTenKhach.Text, GlobalVar._id, DateTime.Now);
                         MessageBox.Show("Đặt phòng thành công");
                     }

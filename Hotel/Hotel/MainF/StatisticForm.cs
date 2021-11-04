@@ -294,11 +294,11 @@ namespace Hotel
             string query = "";
             if (rbDate.Checked == true)
             {
-                query = " CAST(A.checkin as DATE)=@date ";
+                query = " CAST(A.date as DATE)=@date ";
             }
             else
             {
-                query = " CAST(A.checkin as DATE)>=@date1 and  CAST(A.checkout as DATE)<=@date2 ";
+                query = " CAST(A.date as DATE)>=@date1 and  CAST(A.date as DATE)<=@date2 ";
             }
             if (cboxID.Checked == true)
             {
@@ -307,13 +307,10 @@ namespace Hotel
                 query += " E.id=@id_employee";
 
             }
-            query = " select A.id_employee as [Họ và tên],E.name,case when A.status =1 then N'Trực chính' else " +
-                "case when A.status = 0 then N'Trực thế' else N'Vắng' end end as [Tình trạng], " +
-                "A.checkin,A.checkout,delay as [Trễ], " +
-                "soon as [Về sớm], " +
-                "case when A.status = 1 then NULL else E2.name end as Replace " +
+            query = " select A.id_employee as [ID],E.name as [Họ và tên],case when A.status =1 then N'Trực chính' else " +
+                "case when A.status = 0 then N'Chưa trực' else N'Vắng' end end as [Tình trạng] " +
                 "from assignment as A " +
-                "inner join employees as E on E.id = A.id_employee left join employees as E2 on E2.id = A.id_own " +
+                "inner join employees as E on E.id = A.id_employee  " +
                 "inner join type_employee as T on T.id = E.type where " + query;
 
             SqlCommand command = new SqlCommand(query);
@@ -346,11 +343,11 @@ namespace Hotel
             string query = "";
             if (rbDate.Checked == true)
             {
-                query = " CAST(A.checkin as DATE)=@date ";
+                query = " CAST(A.date as DATE)=@date ";
             }
             else
             {
-                query = " CAST(A.checkin as DATE)>=@date1 and  CAST(A.checkout as DATE)<=@date2 ";
+                query = " CAST(A.date as DATE)>=@date1 and  CAST(A.date as DATE)<=@date2 ";
             }
             if (cboxID.Checked == true)
             {
@@ -360,12 +357,8 @@ namespace Hotel
 
             }
             query = " select K.id_employee as ID,K.name as [Họ và tên]," +
-            "ROUND(sum(case when K.status = 1  then(K.time - K.delay - K.soon) * K.salary else (K.time - K.delay - K.soon) * 2 * K.salary end)/1000,0) as Salary," +
-            "ROUND(sum(case when K.status = 0 then 0 else (K.delay + K.soon) * 2 * salary end)/1000,0) as [Phạt]," +
-            "ROUND((sum(case when K.status =1  then (K.time-K.delay-K.soon)*K.salary else case when K.status=-1 then 0 else (K.time-K.delay-K.soon)*2*K.salary end end) -" +
-"sum(case when K.status = 0 then  0 else case when K.status=-1 then K.time*salary*2 else (K.delay + K.soon) * 2 * salary end end))/1000,0) as [Nhận] from " +
-           "(select A.id_employee, E.name, A.status, delay, soon," +
-              "CAST(DATEDIFF(MINUTE, A.checkin, A.checkout) AS DECIMAL(5, 1)) / 60 AS time, salary " +
+            "ROUND(sum(K.work*K.salary/1000),0) as Salary " +
+           "from (select A.id_employee, E.name, A.status,work,salary " +
              " from assignment as A " +
            "inner join employees as E on E.id = A.id_employee " +
            "inner join type_employee as T on T.id = E.type where" + query + ") as K group by K.id_employee,K.name";
@@ -422,19 +415,7 @@ namespace Hotel
             chartEmployee.ChartAreas[0].AxisX.ScaleView.SmallScrollSize = 10;
         }
 
-        private void LoadChartEmployeeCount(object dt)
-        {
-            chartEmployee.Visible = false;
-            chartEmployeeCount.Visible = true;
-            chartEmployeeCount.DataSource = dt;
-            chartEmployeeCount.Series["Delay"].XValueMember = "Họ và tên";
-            chartEmployeeCount.Series["Delay"].YValueMembers = "Trễ";
-            chartEmployeeCount.Series["Soon"].XValueMember = "Họ và tên";
-            chartEmployeeCount.Series["Soon"].YValueMembers = "Về sớm";
-            chartStatisDay.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
-            chartStatisDay.ChartAreas[0].CursorX.AutoScroll = true;
-            chartStatisDay.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
-        }
+        
 
         private void LoadChartStatis(object dt)
         {
@@ -582,70 +563,7 @@ namespace Hotel
             }
         }
 
-        private void btnInfoCount_Click(object sender, EventArgs e)
-        {
-            string query = "";
-            if (rbDate.Checked == true)
-            {
-                query = " CAST(A.checkin as DATE)=@date ";
-            }
-            else
-            {
-                query = " CAST(A.checkin as DATE)>=@date1 and  CAST(A.checkout as DATE)<=@date2 ";
-            }
-            if (cboxID.Checked == true)
-            {
-                if (query != "")
-                    query += " and";
-                query += " E.id=@id_employee";
-
-            }
-            query = " select A.id_employee as ID,E.name as [Họ và tên],count(case when A.status=-1 then 1 else NULL end) as [Vắng], " +
-                "count(case when delay=0 then NULL else delay end) as [Trễ], " +
-                "count(case when soon=0 then NULL else soon end) as [Về sớm],T.name" +
-                " from assignment as A " +
-                "inner join employees as E on E.id = A.id_employee  " +
-                "inner join type_employee as T on T.id = E.type where " + query + " group by A.id_employee,E.name,T.name";
-
-            SqlCommand command = new SqlCommand(query);
-            if (rbDate.Checked == true)
-            {
-                command.Parameters.Add("@date", SqlDbType.Date).Value = dtpFromEmployee.Value;
-            }
-            else
-            {
-                command.Parameters.Add("@date1", SqlDbType.Date).Value = dtpFromEmployee.Value;
-                command.Parameters.Add("@date2", SqlDbType.Date).Value = dtpToEmployee.Value;
-            }
-            if (cboxID.Checked == true)
-            {
-                command.Parameters.Add("@id_employee", SqlDbType.Int).Value = int.Parse(txtIDEmployee.Text);
-
-            }
-            dgvWorking.DataSource = StatisticSQL.GetInfoEmployee(command);
-
-            int maxDelay = 0, maxSoon = 0;
-            string nameDelay = "", nameSoon = "";
-            foreach (DataGridViewRow item in dgvWorking.Rows)
-            {
-                if (maxDelay < (int)item.Cells[3].Value)
-                {
-                    maxDelay = (int)item.Cells[3].Value;
-                    nameDelay = item.Cells[1].Value.ToString();
-                }
-                if (maxSoon < (int)item.Cells[4].Value)
-                {
-                    maxSoon = (int)item.Cells[4].Value;
-                    nameSoon = item.Cells[1].Value.ToString();
-                }
-
-            }
-            dgvWorking.Tag = "3";
-            LoadChartEmployeeCount(dgvWorking.DataSource);
-            lbMaxDelay.Text = "Nhân viên đi trễ nhiều nhất:" + nameDelay;
-            lbMaxSoon.Text = "Nhân viên về sớm nhiều nhất:" + nameSoon;
-
-        }
+        
 
         private void btnPrintInfoEmployee_Click(object sender, EventArgs e)
         {

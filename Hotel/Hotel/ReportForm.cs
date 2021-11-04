@@ -47,36 +47,36 @@ namespace Hotel
             else
                 lbSumRoonIn.Text = "Tổng số hoá đơn trả phòng: 0";
 
-            query = "select count(*) from assignment where CAST(checkin as DATE)=@date and status<>-1 group by status";
+            query = "select count(*) from assignment where CAST(date as DATE)=@date and status<>-1 group by status";
             command = new SqlCommand(query);
             command.Parameters.Add("@date", SqlDbType.Date).Value = yesterday;
             dt = Statistic.GetInfoEmployee(command);
-            
+
             if (dt.Rows.Count > 0)
                 lbEmployeeWork.Text = "Tổng nhân viên làm việc: " + dt.Rows[0][0].ToString();
             else
                 lbEmployeeWork.Text = "Tổng nhân viên làm việc: 0";
 
-            query = "select count(*) from assignment where CAST(checkin as DATE)=@date and status=-1 group by status";
+            query = "select count(*) from assignment where CAST(date as DATE)=@date and status=-1 group by status";
             command = new SqlCommand(query);
             command.Parameters.Add("@date", SqlDbType.Date).Value = yesterday;
             dt = Statistic.GetInfoEmployee(command);
             try
             {
-if (dt.Rows.Count > 0)
-                lbEmployeeNotWork.Text = "Tổng nhân viên vắng: " + dt.Rows[0][0].ToString();
-            else
-                lbEmployeeNotWork.Text = "Tổng nhân viên vắng: 0";
+                if (dt.Rows.Count > 0)
+                    lbEmployeeNotWork.Text = "Tổng nhân viên vắng: " + dt.Rows[0][0].ToString();
+                else
+                    lbEmployeeNotWork.Text = "Tổng nhân viên vắng: 0";
             }
             catch { lbEmployeeNotWork.Text = "Tổng nhân viên vắng: 0"; }
-            
+
 
             query = "select ROUND(sum(price)/1000000,1) from statistic where CAST(date as DATE)=@date and type=1 group by type";
             command = new SqlCommand(query);
             command.Parameters.Add("@date", SqlDbType.Date).Value = yesterday;
             dt = Statistic.GetInfoEmployee(command);
             if (dt.Rows.Count > 0)
-                lbThu.Text = "Tổng thu: " + dt.Rows[0][0].ToString()+" Triệu";
+                lbThu.Text = "Tổng thu: " + dt.Rows[0][0].ToString() + " Triệu";
             else
                 lbThu.Text = "Tổng thu: 0 Triệu";
 
@@ -86,13 +86,13 @@ if (dt.Rows.Count > 0)
             dt = Statistic.GetInfoEmployee(command);
             try
             {
-if (dt.Rows.Count > 0)
-                lbChi.Text = "Tổng chi: " + dt.Rows[0][0].ToString() + " Triệu";
-            else
-                lbThu.Text = "Tổng chi: 0 Triệu";
+                if (dt.Rows.Count > 0)
+                    lbChi.Text = "Tổng chi: " + dt.Rows[0][0].ToString() + " Triệu";
+                else
+                    lbThu.Text = "Tổng chi: 0 Triệu";
             }
             catch { lbThu.Text = "Tổng chi: 0 Triệu"; }
-            
+
 
         }
 
@@ -103,15 +103,15 @@ if (dt.Rows.Count > 0)
                 SaveFileDialog savefile = new SaveFileDialog();
                 savefile.DefaultExt = "*.docx";
                 savefile.Filter = "Word documents files(*.docx)|*.docx";
-                string text = "Thông tin báo cáo ngày "+DateTime.Now.AddDays(-1).ToString("d");
-                
+                string text = "Thông tin báo cáo ngày " + DateTime.Now.AddDays(-1).ToString("d");
 
-                string text2 = lbSumRoonIn.Text + "\n" 
+
+                string text2 = lbSumRoonIn.Text + "\n"
                     + lbSumRoomOut.Text + "\n"
                     + lbEmployeeWork.Text + "\n"
                     + lbEmployeeNotWork.Text + "\n"
                     + lbThu.Text + "\n"
-                    +lbChi.Text+"\n";
+                    + lbChi.Text + "\n";
                 if (savefile.ShowDialog() == DialogResult.OK && savefile.FileName.Length > 0)
                 {
                     Export_Data_To_Word(1, savefile.FileName, text, text2);
@@ -156,7 +156,7 @@ if (dt.Rows.Count > 0)
                     paraHeading.Range.InsertParagraphAfter();
 
 
-                   
+
                     paraHeading.Range.Text = "Nhận xét" + "\n" + text2;
                     paraHeading.Range.Font.Name = "Times New Roman";
                     paraHeading.Range.Font.Size = 13;

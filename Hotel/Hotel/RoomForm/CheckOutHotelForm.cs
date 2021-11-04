@@ -211,13 +211,6 @@ namespace Hotel
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            CARD Card = new CARD();
-            int statusCard = (int)Card.GetStatusCard(room).Rows[0][0];
-            if (statusCard == 1)
-            {
-                MessageBox.Show("Vui lòng nhận thẻ phòng trước khi thanh toán", "CheckOut", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             DialogResult result = MessageBox.Show("Bạn có muốn in hoá đơn", "Check Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -285,15 +278,7 @@ namespace Hotel
             }
         }
 
-        private void btnComfirmCard_Click(object sender, EventArgs e)
-        {
-            CARD Card = new CARD();
-            if (Card.EditStatusCard(room, 0))
-                MessageBox.Show("Nhận thẻ thành công, có thể trả phòng", "CheckOut", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Nhận thẻ không thành công. Vui lòng thử lại", "CheckOut", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

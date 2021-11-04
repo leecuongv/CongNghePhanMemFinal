@@ -68,15 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassSQL\CARD.cs" />
     <Compile Include="ClassSQL\Autofill.cs" />
     <Compile Include="ClassSQL\EMPLOYEE.cs" />
-    <Compile Include="EMPLOYEE\CheckInForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EMPLOYEE\CheckInForm.Designer.cs">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="EMPLOYEE\SuaThongTinNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,9 +265,6 @@
     <Compile Include="SERVICE\ThanhToanDienNuoc.Designer.cs">
       <DependentUpon>ThanhToanDienNuoc.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EMPLOYEE\CheckInForm.resx">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EMPLOYEE\SuaThongTinNhanVien.resx">
       <DependentUpon>SuaThongTinNhanVien.cs</DependentUpon>
     </EmbeddedResource>

@@ -52,7 +52,6 @@ namespace Hotel
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbTong = new System.Windows.Forms.Label();
-            this.btnComfirmCard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -241,22 +240,11 @@ namespace Hotel
             this.lbTong.TabIndex = 0;
             this.lbTong.Text = "Thanh toán";
             // 
-            // btnComfirmCard
-            // 
-            this.btnComfirmCard.Location = new System.Drawing.Point(130, 438);
-            this.btnComfirmCard.Name = "btnComfirmCard";
-            this.btnComfirmCard.Size = new System.Drawing.Size(124, 41);
-            this.btnComfirmCard.TabIndex = 8;
-            this.btnComfirmCard.Text = "Nhận thẻ";
-            this.btnComfirmCard.UseVisualStyleBackColor = true;
-            this.btnComfirmCard.Click += new System.EventHandler(this.btnComfirmCard_Click);
-            // 
             // CheckOutHotelForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(666, 491);
-            this.Controls.Add(this.btnComfirmCard);
             this.Controls.Add(this.dgvDichVu);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnThanhToan);
@@ -295,7 +283,6 @@ namespace Hotel
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView dgvDichVu;
         private System.Windows.Forms.Label lbTong;
-        private System.Windows.Forms.Button btnComfirmCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
