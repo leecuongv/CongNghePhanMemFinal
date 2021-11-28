@@ -15,7 +15,6 @@ namespace Hotel
 {
     public partial class LTForm : Form
     {
-        int eid;
         public LTForm()
         {
             InitializeComponent();
@@ -25,8 +24,6 @@ namespace Hotel
         public LTForm(int id)
         {
             InitializeComponent();
-            this.idNhanVien = id;
-            eid = id;
         }
 
         private Point lastClick;
@@ -295,7 +292,7 @@ namespace Hotel
                 pnlChoose.Location = btn.Location;
                 btn.Location = new Point(pnlChoose.Width, btn.Location.Y);
                 this.btnSetting.Size = new Size(btn.Size.Width - 10, btn.Size.Height);
-                Form childForm = new Setting(eid);
+                Form childForm = new Setting(GlobalVar._id);
                 OpenChildForm(childForm);
             }
         }
@@ -314,6 +311,19 @@ namespace Hotel
                 childForm.btnDelete.Enabled = false;
                 OpenChildForm(childForm);
             }
+        }
+
+        private void timerUpdateWork_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GlobalVar._idAssignment != 0)
+                {
+                    WORKING work = new WORKING();
+                    work.UpdateWorking(GlobalVar._idAssignment);
+                }
+            }
+            catch { }
         }
     }
 }

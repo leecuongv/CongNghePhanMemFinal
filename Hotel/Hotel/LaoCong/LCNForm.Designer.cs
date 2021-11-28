@@ -33,15 +33,14 @@ namespace Hotel
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LCNForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlCheckin = new System.Windows.Forms.Panel();
-            this.btnCheckout = new System.Windows.Forms.Button();
-            this.btnCheckin = new System.Windows.Forms.Button();
-            this.btnExpand = new System.Windows.Forms.Button();
             this.btnShowPanelTab = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.btnTenNhanVen = new System.Windows.Forms.Button();
             this.btnCaLamViec = new System.Windows.Forms.Button();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.Work = new System.Windows.Forms.Button();
             this.pnlChoose = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.dtpDemo = new System.Windows.Forms.DateTimePicker();
@@ -51,10 +50,7 @@ namespace Hotel
             this.timerTransform = new System.Windows.Forms.Timer(this.components);
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             this.elipseControl1 = new Hotel.ElipseControl();
-            this.Work = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
-            this.pnlCheckin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.pnlLeft.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -64,7 +60,6 @@ namespace Hotel
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(171)))), ((int)(((byte)(137)))));
             this.pnlHeader.Controls.Add(this.pnlCheckin);
-            this.pnlHeader.Controls.Add(this.btnExpand);
             this.pnlHeader.Controls.Add(this.btnShowPanelTab);
             this.pnlHeader.Controls.Add(this.lbTitle);
             this.pnlHeader.Controls.Add(this.btnTenNhanVen);
@@ -81,32 +76,12 @@ namespace Hotel
             // 
             // pnlCheckin
             // 
-            this.pnlCheckin.Controls.Add(this.btnCheckout);
-            this.pnlCheckin.Controls.Add(this.btnCheckin);
             this.pnlCheckin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlCheckin.Location = new System.Drawing.Point(729, 0);
+            this.pnlCheckin.Location = new System.Drawing.Point(773, 0);
             this.pnlCheckin.Name = "pnlCheckin";
             this.pnlCheckin.Size = new System.Drawing.Size(0, 60);
             this.pnlCheckin.TabIndex = 7;
             this.pnlCheckin.Tag = "0";
-           
-            // 
-            // btnExpand
-            // 
-            this.btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px2;
-            this.btnExpand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExpand.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExpand.FlatAppearance.BorderSize = 0;
-            this.btnExpand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnExpand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnExpand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpand.Location = new System.Drawing.Point(729, 0);
-            this.btnExpand.Name = "btnExpand";
-            this.btnExpand.Size = new System.Drawing.Size(44, 60);
-            this.btnExpand.TabIndex = 6;
-            this.btnExpand.UseVisualStyleBackColor = true;
-            this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
             // 
             // btnShowPanelTab
             // 
@@ -128,7 +103,7 @@ namespace Hotel
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.Location = new System.Drawing.Point(71, 17);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(61, 29);
+            this.lbTitle.Size = new System.Drawing.Size(45, 24);
             this.lbTitle.TabIndex = 4;
             this.lbTitle.Text = "Title";
             // 
@@ -200,6 +175,43 @@ namespace Hotel
             this.pnlLeft.Size = new System.Drawing.Size(65, 620);
             this.pnlLeft.TabIndex = 4;
             // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = global::Hotel.Properties.Resources.settings_64px1;
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Location = new System.Drawing.Point(-5, 552);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(230, 65);
+            this.btnSetting.TabIndex = 10;
+            this.btnSetting.Text = "Cài đặt";
+            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // Work
+            // 
+            this.Work.BackColor = System.Drawing.Color.Transparent;
+            this.Work.FlatAppearance.BorderSize = 0;
+            this.Work.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Work.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Work.Image = global::Hotel.Properties.Resources.human_resources_48px;
+            this.Work.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Work.Location = new System.Drawing.Point(1, 73);
+            this.Work.Margin = new System.Windows.Forms.Padding(0);
+            this.Work.Name = "Work";
+            this.Work.Size = new System.Drawing.Size(228, 70);
+            this.Work.TabIndex = 9;
+            this.Work.Text = "  Ca làm";
+            this.Work.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Work.UseVisualStyleBackColor = false;
+            this.Work.Click += new System.EventHandler(this.Work_Click);
+            // 
             // pnlChoose
             // 
             this.pnlChoose.BackColor = System.Drawing.SystemColors.Control;
@@ -224,7 +236,7 @@ namespace Hotel
             this.dtpDemo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDemo.Location = new System.Drawing.Point(1020, 14);
             this.dtpDemo.Name = "dtpDemo";
-            this.dtpDemo.Size = new System.Drawing.Size(153, 22);
+            this.dtpDemo.Size = new System.Drawing.Size(153, 20);
             this.dtpDemo.TabIndex = 0;
             // 
             // pnlMain
@@ -264,43 +276,6 @@ namespace Hotel
             this.elipseControl1.CornerRadius = 15;
             this.elipseControl1.TargetControl = this.btnCaLamViec;
             // 
-            // Work
-            // 
-            this.Work.BackColor = System.Drawing.Color.Transparent;
-            this.Work.FlatAppearance.BorderSize = 0;
-            this.Work.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Work.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Work.Image = global::Hotel.Properties.Resources.human_resources_48px;
-            this.Work.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Work.Location = new System.Drawing.Point(1, 73);
-            this.Work.Margin = new System.Windows.Forms.Padding(0);
-            this.Work.Name = "Work";
-            this.Work.Size = new System.Drawing.Size(228, 70);
-            this.Work.TabIndex = 9;
-            this.Work.Text = "  Ca làm";
-            this.Work.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Work.UseVisualStyleBackColor = false;
-            this.Work.Click += new System.EventHandler(this.Work_Click);
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Image = global::Hotel.Properties.Resources.settings_64px1;
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(-5, 552);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(230, 65);
-            this.btnSetting.TabIndex = 10;
-            this.btnSetting.Text = "Cài đặt";
-            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSetting.UseVisualStyleBackColor = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
             // LCNForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -325,7 +300,6 @@ namespace Hotel
             this.Resize += new System.EventHandler(this.LTForm_Resize);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlCheckin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.pnlLeft.ResumeLayout(false);
             this.pnlBottom.ResumeLayout(false);
@@ -351,10 +325,7 @@ namespace Hotel
         private System.Windows.Forms.Timer timerTransform;
         private System.Windows.Forms.DateTimePicker dtpDemo;
         private System.Windows.Forms.Timer timerDateTime;
-        private System.Windows.Forms.Button btnExpand;
         private System.Windows.Forms.Panel pnlCheckin;
-        private System.Windows.Forms.Button btnCheckout;
-        private System.Windows.Forms.Button btnCheckin;
         private System.Windows.Forms.Button Work;
         private System.Windows.Forms.Button btnSetting;
     }

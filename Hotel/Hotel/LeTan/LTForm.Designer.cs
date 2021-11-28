@@ -33,8 +33,6 @@ namespace Hotel
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LTForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlCheckin = new System.Windows.Forms.Panel();
-            this.btnCheckout = new System.Windows.Forms.Button();
-            this.btnCheckin = new System.Windows.Forms.Button();
             this.btnShowPanelTab = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.btnTenNhanVen = new System.Windows.Forms.Button();
@@ -55,8 +53,8 @@ namespace Hotel
             this.pnlBottom_canle = new System.Windows.Forms.Panel();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             this.elipseControl1 = new Hotel.ElipseControl();
+            this.timerUpdateWork = new System.Windows.Forms.Timer(this.components);
             this.pnlHeader.SuspendLayout();
-            this.pnlCheckin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.pnlLeft.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -82,16 +80,12 @@ namespace Hotel
             // 
             // pnlCheckin
             // 
-            this.pnlCheckin.Controls.Add(this.btnCheckout);
-            this.pnlCheckin.Controls.Add(this.btnCheckin);
             this.pnlCheckin.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlCheckin.Location = new System.Drawing.Point(773, 0);
             this.pnlCheckin.Name = "pnlCheckin";
             this.pnlCheckin.Size = new System.Drawing.Size(0, 60);
             this.pnlCheckin.TabIndex = 7;
             this.pnlCheckin.Tag = "0";
-            
-           
             // 
             // btnShowPanelTab
             // 
@@ -357,6 +351,11 @@ namespace Hotel
             this.elipseControl1.CornerRadius = 15;
             this.elipseControl1.TargetControl = this.btnCaLamViec;
             // 
+            // timerUpdateWork
+            // 
+            this.timerUpdateWork.Interval = 180000;
+            this.timerUpdateWork.Tick += new System.EventHandler(this.timerUpdateWork_Tick);
+            // 
             // LTForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -381,7 +380,6 @@ namespace Hotel
             this.Resize += new System.EventHandler(this.LTForm_Resize);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlCheckin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.pnlLeft.ResumeLayout(false);
             this.pnlBottom.ResumeLayout(false);
@@ -411,9 +409,8 @@ namespace Hotel
         private System.Windows.Forms.Timer timerDateTime;
         private System.Windows.Forms.Button btnBill;
         private System.Windows.Forms.Panel pnlCheckin;
-        private System.Windows.Forms.Button btnCheckout;
-        private System.Windows.Forms.Button btnCheckin;
         private System.Windows.Forms.Button Work;
         private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Timer timerUpdateWork;
     }
 }

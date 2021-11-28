@@ -95,7 +95,7 @@ namespace Hotel
         {
             try
             {
-                int phanquyen=1;
+                int phanquyen = 1;
                 if (rbQL.Checked)
                 {
                     phanquyen = 0;
@@ -106,28 +106,43 @@ namespace Hotel
                 }
                 if (CheckFill())
                 {
-                    
-                    
-                    DataTable dt = work.LogIn(txtUser.Text.Trim(), txtPass.Text.Trim(), phanquyen );
+                    DataTable dt = work.LogIn(txtUser.Text.Trim(), txtPass.Text.Trim(), phanquyen);
                     if (dt.Rows.Count > 0)
                     {
-
                         GlobalVar._GlobalType = phanquyen;
                         GlobalVar._id = (int)dt.Rows[0][0];
-                    
-                        this.Hide();
-                       // work.AddWorking(phanquyen, (int)dt.Rows[0][0]); 
-                        OpenForm((int)dt.Rows[0][0],phanquyen);
-                        this.Show();
+                        dt = work.GetIdAssignment(GlobalVar._id);
+                        if (dt.Rows.Count == 0)
+                        {
+                            if (MessageBox.Show("Bạn không lịch phân công vào lúc này. Vẫn tiếp tục đăng nhập?", "Đăng nhập",
+                                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                this.Hide();
+                                OpenForm(phanquyen);
+                                this.Show();
+                            }
+                        }
+                        else
+                        {
+                            
+                            try
+                            {
+                                GlobalVar._idAssignment = (int)dt.Rows[0][0];
+                                work.ConfirmLogin(GlobalVar._idAssignment);
+                            }
+                            catch { }
+                            this.Hide();
+                            OpenForm(phanquyen);
+                            this.Show();
+                        }
+
+
                     }
                     else
                     {
-                        MessageBox.Show("Please Enter A Correct Username/Password","Login",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show("Please Enter A Correct Username/Password", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-
-
-
             }
             catch
             {
@@ -146,11 +161,11 @@ namespace Hotel
 
         }
 
-        private void OpenForm(int id,int phanquyen)
+        private void OpenForm(int phanquyen)
         {
             if (phanquyen == 1)
             {
-                LTForm lt = new LTForm(id);
+                LTForm lt = new LTForm();
                 lt.ShowDialog();
             }
             else
@@ -158,17 +173,16 @@ namespace Hotel
                 if (phanquyen == 0)
                 {
                     QLForm ql = new QLForm();
-                    ql.idQuanLy = id;
                     ql.ShowDialog();
                 }
                 else
                 {
-                    LCNForm lCForm = new LCNForm(id);
+                    LCNForm lCForm = new LCNForm(GlobalVar._id);
                     //lCForm.idQuanLy = id;
                     lCForm.ShowDialog();
                 }
             }
-                
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -179,14 +193,14 @@ namespace Hotel
         private void btnClose_Click(object sender, EventArgs e)
         {
             DialogResult re = MessageBox.Show("Exit Program", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(re==DialogResult.Yes)
+            if (re == DialogResult.Yes)
                 this.Close();
         }
 
         private void btnClose_MouseHover(object sender, EventArgs e)
         {
-            btnClose.BackgroundImage= global::Hotel.Properties.Resources.shutdownHover_40px;
-            
+            btnClose.BackgroundImage = global::Hotel.Properties.Resources.shutdownHover_40px;
+
         }
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
@@ -204,10 +218,11 @@ namespace Hotel
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if ( e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
                 txtUser.Focus();
-            }else if (e.KeyCode == Keys.Enter)
+            }
+            else if (e.KeyCode == Keys.Enter)
             {
                 btnLogin_Click(btnLogin, e);
             }

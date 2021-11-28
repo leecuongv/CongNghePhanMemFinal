@@ -249,3 +249,47 @@ E:\Học hành như cá kho tiêu\DoAnCSDL\CongNghePhanMemFinal\Hotel\Hotel\obj\
 E:\Học hành như cá kho tiêu\DoAnCSDL\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.csproj.CopyComplete
 E:\Học hành như cá kho tiêu\DoAnCSDL\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.exe
 E:\Học hành như cá kho tiêu\DoAnCSDL\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.pdb
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\Hotel.exe.config
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\Hotel.exe
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\Hotel.pdb
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\BouncyCastle.Crypto.dll
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\itextsharp.dll
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\System.ComponentModel.Annotations.dll
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\System.Windows.Forms.Ribbon.dll
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\bin\Debug\itextsharp.xml
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.csproj.AssemblyReference.cache
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.SuaThongTinNhanVien.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ThemNhanVien.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.LCNForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.DoiMatKhau.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.DoiTenDangNhap.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.Setting.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ManageEmployeeForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.RegisterForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ReportForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.AddRoom.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.EditRoom.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.AddService.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.AssignmentForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.CheckOutHotelForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.EventForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.EditService.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ImportServiceForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.InfoCustomerForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.BookRoomForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.CustomerForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.LoadRoom.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.LoginForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.LTForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ManageBillForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.Properties.Resources.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ServiceForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.QLForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ShowAssignmentFrom.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.StatisticForm.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.ThanhToanDienNuoc.resources
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.csproj.GenerateResource.cache
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.csproj.CoreCompileInputs.cache
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.csproj.CopyComplete
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.exe
+D:\HT\hk5\CNPM\CongNghePhanMemFinal\Hotel\Hotel\obj\Debug\Hotel.pdb

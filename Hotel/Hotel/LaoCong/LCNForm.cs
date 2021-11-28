@@ -213,22 +213,7 @@ namespace Hotel
             dtpDemo.Value = dtpDemo.Value.AddMinutes(1);
 
         }
-        private void btnExpand_Click(object sender, EventArgs e)
-        {
-            if (pnlCheckin.Tag.ToString() == "0")
-            {
-                pnlCheckin.Size = new Size(200, 60);
-                btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px3;
-                pnlCheckin.Tag = "Expand";
-            }
-            else
-            {
-                pnlCheckin.Size = new Size(0, 60);
-                btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px2;
-                pnlCheckin.Tag = "0";
-            }
-
-        }
+        
 
  
 

@@ -13,68 +13,6 @@ namespace Hotel
     {
         MyDB Mydb = new MyDB();
 
-        public DataTable GetEmployee(DateTime date)
-        {
-            string query;
-            Mydb.openConnection();
-            SqlCommand command;
-            DataTable data = new DataTable();
-            try
-            {
-                query = "select E.id as id_employee ,E.name,T.name as type from employees as E inner join" +
-                    " type_employee as T on E.type=T.id " +
-                    " where not exists (select A.id_employee from assignment as A where  CAST(A.checkin as DATE)=@date and E.id=A.id_employee)";
-
-                command = new SqlCommand(query, Mydb.getConnection);
-                command.Parameters.Add("@date", SqlDbType.Date).Value = date;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = command;
-                adapter.Fill(data);
-
-                return data;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Assignment SQL");
-                Mydb.closeConnection();
-                return data;
-            }
-        }
-
-        public DataTable GetEmployee(DateTime date, int type,int id)
-        {
-            string query;
-            Mydb.openConnection();
-            SqlCommand command;
-            DataTable data = new DataTable();
-            try
-            {
-                query = "select distinct E.id as id_employee ,E.name as name,T.name as type from employees as E inner join" +
-                    " type_employee as T on E.type=T.id " +
-                    " inner join (select A.id_employee from assignment as A where A.checkin<=@date and A.checkout>=@date2 and A.id_employee<>@id) as Work" +
-                    " on Work.id_employee=E.id where E.type=@type";
-
-                command = new SqlCommand(query, Mydb.getConnection);
-                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                command.Parameters.Add("@date", SqlDbType.DateTime).Value = date;
-                command.Parameters.Add("@date2", SqlDbType.DateTime).Value = date;
-                command.Parameters.Add("@type", SqlDbType.Int).Value = type;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = command;
-                adapter.Fill(data);
-
-                return data;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Assignment SQL 2");
-                Mydb.closeConnection();
-                return data;
-            }
-        }
-
-      
-
         public DataTable LogIn(string username, string password,int type)
         {
             SqlCommand command = new SqlCommand("select log_in.id from log_in inner join Employees on log_in.id=Employees.id where username= @username and password= @password and type= @type", Mydb.getConnection);
@@ -85,9 +23,45 @@ namespace Hotel
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
+            Mydb.closeConnection();
             return table;
         }
-        
+
+        public DataTable GetIdAssignment(int idE)
+        {
+            string sql = "select a.id from assignment a inner join shift s " +
+                "on a.shift = s.shift where a.id_employee = @ide and a.date = CAST(GETDATE() as DATE)" +
+                "and cast(getdate() as time)>= CAST(s.timeFrom as time) and cast(getdate() as time)< CAST(s.timeTo as time)";
+            SqlCommand command = new SqlCommand(sql, Mydb.getConnection);
+            command.Parameters.Add("@ide", SqlDbType.Int).Value = idE;
+            Mydb.openConnection();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            Mydb.closeConnection();
+            return table;
+        }
+
+        public void ConfirmLogin(int idAssignment)
+        {
+            string sql = "update assignment set status=1,work=0 where id=@id";
+            SqlCommand command = new SqlCommand(sql, Mydb.getConnection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = idAssignment;
+            Mydb.openConnection();
+            command.ExecuteNonQuery();
+        }
+
+        public void UpdateWorking(int idAssignment)
+        {
+            string sql = "update assignment set work+=0.05 where id=@id";//3 phút cập nhật 1 lần
+            SqlCommand command = new SqlCommand(sql, Mydb.getConnection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = idAssignment;
+            Mydb.openConnection();
+            command.ExecuteNonQuery();
+            Mydb.closeConnection();
+        }
+
+
     }
 }
 

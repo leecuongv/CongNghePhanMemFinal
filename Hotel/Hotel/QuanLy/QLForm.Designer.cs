@@ -33,9 +33,6 @@ namespace Hotel
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlCheckin = new System.Windows.Forms.Panel();
-            this.btnCheckout = new System.Windows.Forms.Button();
-            this.btnCheckin = new System.Windows.Forms.Button();
-            this.btnExpand = new System.Windows.Forms.Button();
             this.btnShowPanelTab = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.btnTenNhanVen = new System.Windows.Forms.Button();
@@ -60,8 +57,8 @@ namespace Hotel
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.timerDatetime = new System.Windows.Forms.Timer(this.components);
             this.elipseControl1 = new Hotel.ElipseControl();
+            this.timerUpdateWork = new System.Windows.Forms.Timer(this.components);
             this.pnlHeader.SuspendLayout();
-            this.pnlCheckin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.pnlLeft.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -71,7 +68,6 @@ namespace Hotel
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.SteelBlue;
             this.pnlHeader.Controls.Add(this.pnlCheckin);
-            this.pnlHeader.Controls.Add(this.btnExpand);
             this.pnlHeader.Controls.Add(this.btnShowPanelTab);
             this.pnlHeader.Controls.Add(this.lbTitle);
             this.pnlHeader.Controls.Add(this.btnTenNhanVen);
@@ -88,32 +84,12 @@ namespace Hotel
             // 
             // pnlCheckin
             // 
-            this.pnlCheckin.Controls.Add(this.btnCheckout);
-            this.pnlCheckin.Controls.Add(this.btnCheckin);
             this.pnlCheckin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlCheckin.Location = new System.Drawing.Point(734, 0);
+            this.pnlCheckin.Location = new System.Drawing.Point(778, 0);
             this.pnlCheckin.Name = "pnlCheckin";
             this.pnlCheckin.Size = new System.Drawing.Size(0, 60);
             this.pnlCheckin.TabIndex = 9;
             this.pnlCheckin.Tag = "0";
-          
-            // 
-            // btnExpand
-            // 
-            this.btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px2;
-            this.btnExpand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExpand.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExpand.FlatAppearance.BorderSize = 0;
-            this.btnExpand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnExpand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnExpand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpand.Location = new System.Drawing.Point(734, 0);
-            this.btnExpand.Name = "btnExpand";
-            this.btnExpand.Size = new System.Drawing.Size(44, 60);
-            this.btnExpand.TabIndex = 8;
-            this.btnExpand.UseVisualStyleBackColor = true;
-            this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
             // 
             // btnShowPanelTab
             // 
@@ -460,6 +436,11 @@ namespace Hotel
             this.elipseControl1.CornerRadius = 15;
             this.elipseControl1.TargetControl = this.btnCaLamViec;
             // 
+            // timerUpdateWork
+            // 
+            this.timerUpdateWork.Interval = 180000;
+            this.timerUpdateWork.Tick += new System.EventHandler(this.timerUpdateWork_Tick);
+            // 
             // QLForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -483,7 +464,6 @@ namespace Hotel
             this.Resize += new System.EventHandler(this.LTForm_Resize);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlCheckin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.pnlLeft.ResumeLayout(false);
             this.pnlBottom.ResumeLayout(false);
@@ -515,12 +495,10 @@ namespace Hotel
         private System.Windows.Forms.Button btnShift;
         private System.Windows.Forms.Button btnEvent;
         private System.Windows.Forms.Panel pnlCheckin;
-        private System.Windows.Forms.Button btnCheckout;
-        private System.Windows.Forms.Button btnCheckin;
-        private System.Windows.Forms.Button btnExpand;
         private System.Windows.Forms.Button btnManageBill;
         private System.Windows.Forms.Button btnDSPhong;
         private System.Windows.Forms.DateTimePicker dtpDemo;
         private System.Windows.Forms.Timer timerDatetime;
+        private System.Windows.Forms.Timer timerUpdateWork;
     }
 }

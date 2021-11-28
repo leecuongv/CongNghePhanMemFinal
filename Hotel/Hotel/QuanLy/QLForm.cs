@@ -19,7 +19,6 @@ namespace Hotel
             this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
         private Point lastClick;
-        public int idQuanLy=2;
         private Form currentForm;
         const int WM_NCHITTEST = 0x0084;
         const int HTCLIENT = 1;
@@ -56,12 +55,13 @@ namespace Hotel
             try
             {
                 EMPLOYEES Emp = new EMPLOYEES();
-                DataTable dt =Emp.getEmployeeByID(idQuanLy);
+                DataTable dt =Emp.getEmployeeByID(GlobalVar._id);
                 btnTenNhanVen.Text = "Quản lý:" + dt.Rows[0][1].ToString();
                 pnlChoose.Tag = btnDSPhong;
                 Form childFrom = new LoadRoom();
                 OpenChildForm(childFrom);
                 timerDatetime.Start();
+                timerUpdateWork.Start();
             }
             catch(Exception ex)
             {
@@ -298,21 +298,7 @@ namespace Hotel
             }
         }
 
-        private void btnExpand_Click(object sender, EventArgs e)
-        {
-            if (pnlCheckin.Tag.ToString() == "0")
-            {
-                pnlCheckin.Size = new Size(200, 60);
-                btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px3;
-                pnlCheckin.Tag = "Expand";
-            }
-            else
-            {
-                pnlCheckin.Size = new Size(0, 60);
-                btnExpand.BackgroundImage = global::Hotel.Properties.Resources.expand_arrow_96px2;
-                pnlCheckin.Tag = "0";
-            }
-        }
+        
 
 
         private void btnManageBill_Click(object sender, EventArgs e)
@@ -375,6 +361,19 @@ namespace Hotel
             
             }
             dtpDemo.Value = dtpDemo.Value.AddMinutes(1);
+        }
+
+        private void timerUpdateWork_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GlobalVar._idAssignment != 0)
+                {
+                    WORKING work = new WORKING();
+                    work.UpdateWorking(GlobalVar._idAssignment);
+                }
+            }
+            catch { }
         }
     }
 }
