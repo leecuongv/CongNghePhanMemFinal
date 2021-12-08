@@ -106,7 +106,6 @@ namespace Hotel
                 lbTong.Text = dgvBill.Rows.Count.ToString();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-
         }
 
         private int Status(string status)
@@ -170,7 +169,7 @@ namespace Hotel
                         }
                     }
 
-                    if (BillSQL.EditBill(cbTenPhong.SelectedItem.ToString(), dtpFrom.Value, dtpTo.Value,
+                    if (BillSQL.EditBill(cbTenPhong.SelectedValue.ToString(), dtpFrom.Value, dtpTo.Value,
                         Status(cbStatus.SelectedItem.ToString()), int.Parse(dgvBill.CurrentRow.Cells["pay"].Value.ToString()),
                         0, id_bill))
                     {
@@ -182,7 +181,7 @@ namespace Hotel
                 }
                 else
                 {
-                    if (BillSQL.EditBill(cbTenPhong.SelectedItem.ToString(), dtpFrom.Value, dtpTo.Value,
+                    if (BillSQL.EditBill(cbTenPhong.SelectedValue.ToString(), dtpFrom.Value, dtpTo.Value,
                         Status(cbStatus.SelectedItem.ToString()), int.Parse(dgvBill.CurrentRow.Cells["pay"].Value.ToString()),
                         0, id_bill))
                     {
@@ -192,7 +191,7 @@ namespace Hotel
             }
             else
             {
-                if (BillSQL.EditBill(cbTenPhong.SelectedItem.ToString(), dtpFrom.Value, dtpTo.Value,
+                if (BillSQL.EditBill(cbTenPhong.SelectedValue.ToString(), dtpFrom.Value, dtpTo.Value,
                        Status(cbStatus.SelectedItem.ToString()), int.Parse(dgvBill.CurrentRow.Cells["pay"].Value.ToString()),
                        0, id_bill))
                 {
