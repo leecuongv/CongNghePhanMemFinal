@@ -98,7 +98,7 @@ Trang quản lý tối giản với hình **tính năng hỗ trợ**:
 
 </div>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/menu1.png" width="500px">
 
@@ -112,7 +112,7 @@ Phòng **tối giản**, **gọn gàng**.
 
 </div>
 
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 <img align="right" src="/Review/khachhang.png" width="500px">
 
