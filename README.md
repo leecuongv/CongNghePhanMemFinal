@@ -15,13 +15,11 @@ A **beautiful** and **easy-to-use** Management Tool
 
 ---
 
-**Library Management System** là một phần mềm quản lý thư viện, hướng đến sự đơn giản và tiện lợi cho người dùng. Phần mềm hỗ trợ nhiều tính năng hữu ích giúp việc quản lý dễ dàng hơn.
+**Hotel Management System** là một phần mềm quản lý khách sạn, hướng đến sự đơn giản và tiện lợi cho người dùng. Phần mềm hỗ trợ nhiều tính năng hữu ích giúp việc quản lý dễ dàng hơn.
 
 - [Thành Viên Nhóm](#thành-viên-nhóm)
 - [Tài Khoản](#tài-khoản)
 - [Chức Năng Chính](#chức-năng-chính)
-- [Chức Năng Nâng Cao](#chức-năng-nâng-cao)
-- [Screenshot](#screenshot)
 
 ---
 <br><br>
@@ -112,7 +110,7 @@ Phòng **tối giản**, **gọn gàng**.
 
 </div>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="right" src="/Review/khachhang.png" width="500px">
 
