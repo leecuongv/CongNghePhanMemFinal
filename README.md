@@ -58,7 +58,7 @@ Trang đăng nhập được thiết kế **hiện đại**, **tối giản**.
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/menu1.png" width="500px">
 
@@ -96,7 +96,7 @@ Trang quản lý tối giản với hình **tính năng hỗ trợ**:
 
 </div>
 
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/menu1.png" width="500px">
 
