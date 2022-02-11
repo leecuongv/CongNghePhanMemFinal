@@ -1,27 +1,25 @@
 <div align="center">
 
-# Library Management System
+# Hotel Management System
 
 A **beautiful** and **easy-to-use** Management Tool
 
-<img src="/Review/Banner.png" width="50%">
+<img src="/Review/menu2.png" width="50%">
 
 ![Completion](https://img.shields.io/badge/style-97%25-00e600?label=Completion&logo=java&logoColor=red&style=for-the-badge)
-![Language](https://img.shields.io/badge/Language-Java-orange.svg)
-![Team](https://img.shields.io/badge/Team-SGU-00ffff.svg)
-![Project](https://img.shields.io/badge/Project-Java%20%2F%20HK2-1affa3.svg)
+![Language](https://img.shields.io/badge/Language-C#.svg)
+![Team](https://img.shields.io/badge/Team-UTE-00ffff.svg)
+![Project](https://img.shields.io/badge/Project-C#%20%2F%20C#-1affa3.svg)
 
 </div>
 
 ---
 
-**Library Management System** là một phần mềm quản lý thư viện, hướng đến sự đơn giản và tiện lợi cho người dùng. Phần mềm hỗ trợ nhiều tính năng hữu ích giúp việc quản lý dễ dàng hơn.
+**Hotel Management System** là một phần mềm quản lý khách sạn, hướng đến sự đơn giản và tiện lợi cho người dùng. Phần mềm hỗ trợ nhiều tính năng hữu ích giúp việc quản lý dễ dàng hơn.
 
 - [Thành Viên Nhóm](#thành-viên-nhóm)
 - [Tài Khoản](#tài-khoản)
 - [Chức Năng Chính](#chức-năng-chính)
-- [Chức Năng Nâng Cao](#chức-năng-nâng-cao)
-- [Screenshot](#screenshot)
 
 ---
 <br><br>
@@ -60,7 +58,7 @@ Trang đăng nhập được thiết kế **hiện đại**, **tối giản**.
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/menu1.png" width="500px">
 
@@ -75,7 +73,7 @@ Trang Chủ được thiết kế **trực quan** giúp người sử dụng có
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="right" src="/Review/menu2.png" width="500px">
 
@@ -98,7 +96,7 @@ Trang quản lý tối giản với hình **tính năng hỗ trợ**:
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
 
 <img align="left" src="/Review/menu1.png" width="500px">
 
@@ -112,7 +110,7 @@ Phòng **tối giản**, **gọn gàng**.
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="right" src="/Review/khachhang.png" width="500px">
 
@@ -126,7 +124,7 @@ Tại màn hình này ta có thể thêm, sửa và xóa khách hàng của phò
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/dichvu.png" width="500px">
 
@@ -140,7 +138,7 @@ Tại màn hình này ta có thể thêm, sửa và xóa khách hàng của phò
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="right" src="/Review/phancong.png" width="500px">
 
@@ -155,7 +153,7 @@ Tại màn hình Phân công ta có thể *thêm*, *xóa*, *cập nhật* các c
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/thongke.png" width="500px">
 
@@ -169,7 +167,7 @@ Report đầy đủ thông tin, giúp người dùng đánh giá tính hiệu qu
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/quanlynhanvien.png" width="500px">
 
@@ -183,7 +181,7 @@ Tại đây ta có thể *xem* được thông tin của các nhân viên đang 
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/quanlyhoadon.png" width="500px">
 
@@ -197,7 +195,7 @@ Tại màn hình này ta có thể *xem* danh sách các hóa đơn đã đượ
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <img align="left" src="/Review/setting.png" width="500px">
 
@@ -211,7 +209,7 @@ Tại đây ta có thể chỉnh sửa tên đăng nhập và mật khẩu đăn
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 ---
 <br><br>
