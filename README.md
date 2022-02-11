@@ -112,7 +112,7 @@ Phòng **tối giản**, **gọn gàng**.
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
 <img align="right" src="/Review/khachhang.png" width="500px">
 
