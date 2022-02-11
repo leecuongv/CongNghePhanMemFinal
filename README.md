@@ -171,7 +171,7 @@ Report đầy đủ thông tin, giúp người dùng đánh giá tính hiệu qu
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<img align="left" src="/Review/nhanvien.png" width="500px">
+<img align="left" src="/Review/quanlynhanvien.png" width="500px">
 
 <div align="right">
 
@@ -185,7 +185,7 @@ Tại đây ta có thể *xem* được thông tin của các nhân viên đang 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<img align="left" src="/Review/hoadon.png" width="500px">
+<img align="left" src="/Review/quanlyhoadon.png" width="500px">
 
 <div align="right">
 
