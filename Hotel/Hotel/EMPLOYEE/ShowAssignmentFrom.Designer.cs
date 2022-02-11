@@ -80,6 +80,7 @@ namespace Hotel
             this.btnStatics.TabIndex = 2;
             this.btnStatics.Text = "Thống kê";
             this.btnStatics.UseVisualStyleBackColor = false;
+            this.btnStatics.Visible = false;
             this.btnStatics.Click += new System.EventHandler(this.btnStatics_Click);
             // 
             // panel1

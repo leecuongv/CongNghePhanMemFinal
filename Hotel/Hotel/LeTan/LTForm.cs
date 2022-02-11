@@ -325,5 +325,20 @@ namespace Hotel
             }
             catch { }
         }
+
+        private void btnSetting_Click_1(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if ((Button)pnlChoose.Tag != btn)
+            {
+                ReLocation_btnChoose((Button)pnlChoose.Tag);
+                pnlChoose.Tag = btn;
+                pnlChoose.Location = btn.Location;
+                btn.Location = new Point(pnlChoose.Width, btn.Location.Y);
+                this.btnSetting.Size = new Size(btn.Size.Width - 10, btn.Size.Height);
+                Form childForm = new Setting(GlobalVar._id);
+                OpenChildForm(childForm);
+            }
+        }
     }
 }

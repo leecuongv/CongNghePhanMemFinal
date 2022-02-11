@@ -107,7 +107,7 @@ namespace Hotel
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.Location = new System.Drawing.Point(71, 17);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(45, 24);
+            this.lbTitle.Size = new System.Drawing.Size(61, 29);
             this.lbTitle.TabIndex = 4;
             this.lbTitle.Text = "Title";
             // 
@@ -200,6 +200,7 @@ namespace Hotel
             this.btnSetting.Text = "Cài đặt";
             this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click_1);
             // 
             // btnBill
             // 
@@ -315,7 +316,7 @@ namespace Hotel
             this.dtpDemo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDemo.Location = new System.Drawing.Point(1020, 14);
             this.dtpDemo.Name = "dtpDemo";
-            this.dtpDemo.Size = new System.Drawing.Size(153, 20);
+            this.dtpDemo.Size = new System.Drawing.Size(153, 22);
             this.dtpDemo.TabIndex = 0;
             // 
             // pnlMain
