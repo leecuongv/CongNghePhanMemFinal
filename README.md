@@ -1,15 +1,15 @@
 <div align="center">
 
-# Library Management System
+# Hotel Management System
 
 A **beautiful** and **easy-to-use** Management Tool
 
-<img src="/Review/Banner.png" width="50%">
+<img src="/Review/menu2.png" width="50%">
 
 ![Completion](https://img.shields.io/badge/style-97%25-00e600?label=Completion&logo=java&logoColor=red&style=for-the-badge)
-![Language](https://img.shields.io/badge/Language-Java-orange.svg)
-![Team](https://img.shields.io/badge/Team-SGU-00ffff.svg)
-![Project](https://img.shields.io/badge/Project-Java%20%2F%20HK2-1affa3.svg)
+![Language](https://img.shields.io/badge/Language-C#.svg)
+![Team](https://img.shields.io/badge/Team-UTE-00ffff.svg)
+![Project](https://img.shields.io/badge/Project-C#%20%2F%20C#-1affa3.svg)
 
 </div>
 
